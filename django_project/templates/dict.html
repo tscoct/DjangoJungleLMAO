@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
     <title>Dict test</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    hullo evry1 todae we are doin the dict test
-    {{list}}
+    <h1>Практика 1: Англо-русский словарь.</h1><br>
+    
+    <br>
+    Ввод слова и его определения<br>
+    Английское слово<input type="text"></input><br>
+    Перевод<input type="text"></input><br>
+    <form method="POST">
+        {% csrf_token %}
+        <button id="btn_action">Добавить</button>
+      </form>
+
+    <form action="/dict" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+    <br>Текущий словарь:<br>
+    
+    <table >
+      <tr>
+        <th>English word</th>
+        <th>Русское слово</th>
+      </tr>
+      {% for i in list_words %}
+
+      <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    
   </body>
 </html>
+<script>
+    function btn_action() {
+        $.ajax({
+            type: "POST",
+            url: "/ajax_move_camera/",
+            data: {
+                "word1": "word1",
+                "word2": "word2",
+                "csrfmiddlewaretoken", "{{ csrf_token }}"
+            },
+            dataType: 'json',
+            success: function(data) {
+                
+            }
+        })
+    }
+</script>
