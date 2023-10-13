@@ -14,21 +14,11 @@
   </head>
   <body>
     <h1>Практика 1: Англо-русский словарь.</h1><br>
-    
+    <a href="/">Главная</a><br>
+    <a href="add_word">Добавить слово</a><br>
     <br>
-    Ввод слова и его определения<br>
-    Английское слово<input type="text"></input><br>
-    Перевод<input type="text"></input><br>
-    <form method="POST">
-        {% csrf_token %}
-        <button id="btn_action">Добавить</button>
-      </form>
 
-    <form action="/dict" method="post">
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-    <input type="submit" value="OK">
-</form>
+    
     <br>Текущий словарь:<br>
     
     <table >

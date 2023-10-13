@@ -9,10 +9,10 @@ from .forms import NameForm
 
 
 
-def dict_l1(request):
+def add_word(request):
     #latest_question_list = Question.objects.order_by("-pub_date")[:5]
 
-    template = loader.get_template("dict.html")
+    template = loader.get_template("add_word.html")
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
         form = NameForm(request.POST)

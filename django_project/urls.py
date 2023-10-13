@@ -23,11 +23,11 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', views.current_datetime),
-    path('dict/', views.dict_l1),
+    # path('sub_test/', include('django_project.sub_test.urls') ),
+    path('dicta/', views.dict_l1),
+    path('dicta/add_word/', views.dict_l1_add),  #  include('django_project.add_word.urls')  views.dict_l1, 
     path('', views.main),
 ]
 """if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)"""
-
-
